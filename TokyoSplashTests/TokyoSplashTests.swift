@@ -7,20 +7,39 @@
 
 import XCTest
 @testable import TokyoSplash
+typealias Photos = [mockModel]
 
+class mockModel: Codable {
+    let id: String?
+}
 class TokyoSplashTests: XCTestCase {
 
+    var service: NetworkServices?
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.service = NetworkServices.shared
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.service = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_ListPhotosAPI() throws {
+        let expectation = XCTestExpectation(description: "ListPhotosAPI")
+        
+        self.service?.request(request: .listPhotos(page: 1), completion: { (result: Result<(mockModel?, [mockModel]?), Error>) in
+            switch result {
+            case .success(let value):
+                print(value)
+                XCTAssertNotNil(value)
+                XCTAssertEqual(value.1?.count, 10)
+                expectation.fulfill()
+            case .failure(let error):
+                print(error)
+                XCTAssertThrowsError(error)
+            }
+        })
+        wait(for: [expectation], timeout: 10.0)
     }
 
     func testPerformanceExample() throws {

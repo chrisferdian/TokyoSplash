@@ -16,6 +16,11 @@
 		84E567E32723EAED00E6F7FD /* TokyoSplashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E567E22723EAED00E6F7FD /* TokyoSplashTests.swift */; };
 		84E567ED2723EAED00E6F7FD /* TokyoSplashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E567EC2723EAED00E6F7FD /* TokyoSplashUITests.swift */; };
 		84E567EF2723EAED00E6F7FD /* TokyoSplashUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E567EE2723EAED00E6F7FD /* TokyoSplashUITestsLaunchTests.swift */; };
+		84E568002723F74D00E6F7FD /* NetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E567FF2723F74D00E6F7FD /* NetworkServices.swift */; };
+		84E568022723FBBA00E6F7FD /* NetworkRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E568012723FBBA00E6F7FD /* NetworkRoute.swift */; };
+		84E568052723FC3C00E6F7FD /* NetworkTypealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E568042723FC3C00E6F7FD /* NetworkTypealias.swift */; };
+		84E568072723FC6A00E6F7FD /* NetworkEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E568062723FC6A00E6F7FD /* NetworkEndPoint.swift */; };
+		84E568092723FE8400E6F7FD /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E568082723FE8400E6F7FD /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		84E567E82723EAED00E6F7FD /* TokyoSplashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TokyoSplashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E567EC2723EAED00E6F7FD /* TokyoSplashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoSplashUITests.swift; sourceTree = "<group>"; };
 		84E567EE2723EAED00E6F7FD /* TokyoSplashUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokyoSplashUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		84E567FF2723F74D00E6F7FD /* NetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServices.swift; sourceTree = "<group>"; };
+		84E568012723FBBA00E6F7FD /* NetworkRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRoute.swift; sourceTree = "<group>"; };
+		84E568042723FC3C00E6F7FD /* NetworkTypealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTypealias.swift; sourceTree = "<group>"; };
+		84E568062723FC6A00E6F7FD /* NetworkEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndPoint.swift; sourceTree = "<group>"; };
+		84E568082723FE8400E6F7FD /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +109,7 @@
 		84E567CA2723EAEB00E6F7FD /* TokyoSplash */ = {
 			isa = PBXGroup;
 			children = (
+				84E567FE2723F73A00E6F7FD /* Helpers */,
 				84E567FD2723F4BF00E6F7FD /* Modules */,
 				84E567CB2723EAEB00E6F7FD /* AppDelegate.swift */,
 				84E567CD2723EAEB00E6F7FD /* SceneDelegate.swift */,
@@ -133,6 +144,26 @@
 			children = (
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		84E567FE2723F73A00E6F7FD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				84E568032723FC1F00E6F7FD /* Services */,
+				84E568082723FE8400E6F7FD /* Constant.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		84E568032723FC1F00E6F7FD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				84E567FF2723F74D00E6F7FD /* NetworkServices.swift */,
+				84E568012723FBBA00E6F7FD /* NetworkRoute.swift */,
+				84E568042723FC3C00E6F7FD /* NetworkTypealias.swift */,
+				84E568062723FC6A00E6F7FD /* NetworkEndPoint.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,7 +298,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E567D02723EAEB00E6F7FD /* ViewController.swift in Sources */,
+				84E568052723FC3C00E6F7FD /* NetworkTypealias.swift in Sources */,
 				84E567CC2723EAEB00E6F7FD /* AppDelegate.swift in Sources */,
+				84E568092723FE8400E6F7FD /* Constant.swift in Sources */,
+				84E568072723FC6A00E6F7FD /* NetworkEndPoint.swift in Sources */,
+				84E568022723FBBA00E6F7FD /* NetworkRoute.swift in Sources */,
+				84E568002723F74D00E6F7FD /* NetworkServices.swift in Sources */,
 				84E567CE2723EAEB00E6F7FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
