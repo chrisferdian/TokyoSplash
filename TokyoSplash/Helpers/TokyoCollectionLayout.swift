@@ -37,13 +37,13 @@ class TokyoCollectionLayout : UICollectionViewFlowLayout {
             self.scrollDirection = .vertical
             if let collectionView = self.collectionView {
                 let optimisedWidth = (collectionView.frame.width - minimumInteritemSpacing) / 2
-                let height = collectionView.frame.height / 2.5
+                let height = collectionView.frame.height / 2
                 self.itemSize = CGSize(width: optimisedWidth , height: height) // keep as square
             }
         case .list:
             self.scrollDirection = .vertical
             if let collectionView = self.collectionView {
-                self.itemSize = CGSize(width: collectionView.frame.width , height: 130)
+                self.itemSize = CGSize(width: collectionView.frame.width , height: 200)
             }
         }
     }

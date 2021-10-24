@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
         let searchBarItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearch))
         self.navigationItem.setRightBarButton(searchBarItem, animated: true)
         
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
+        collectionView.registerCell(MainCollectionViewCell.self)
         collectionView.dataSource = self
         collectionView.collectionViewLayout = collectionViewFlowLayout
         collectionViewFlowLayout.display = .list
@@ -52,8 +52,8 @@ extension MainViewController: UICollectionViewDataSource {
         return 10
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UICollectionViewCell", for: indexPath)
-        cell.backgroundColor = .systemYellow
+        let cell = collectionView.dequeueCell(MainCollectionViewCell.self.self, indexPath: indexPath)
+
         return cell
     }
 }
