@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,23 +16,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TH6-eu-8g1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                    </imageView>
                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpz-l2-Zrr">
-                        <rect key="frame" x="0.0" y="150" width="375" height="50"/>
+                        <rect key="frame" x="0.0" y="144" width="375" height="56"/>
                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ngl-gp-BkF">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Xxn-nd-DkO">
-                                    <rect key="frame" x="16" y="8" width="343" height="34"/>
+                                    <rect key="frame" x="16" y="8" width="343" height="40.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dp9-lP-Lij">
-                                            <rect key="frame" x="0.0" y="0.0" width="35.5" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="40.5" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppf-QI-lrR">
-                                            <rect key="frame" x="0.0" y="21" width="35.5" height="13"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppf-QI-lrR">
+                                            <rect key="frame" x="0.0" y="23.5" width="35.5" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -52,14 +54,22 @@
                     </visualEffectView>
                 </subviews>
             </view>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="TH6-eu-8g1" secondAttribute="trailing" id="8FO-f8-lrh"/>
                 <constraint firstItem="wpz-l2-Zrr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="F0u-BU-VkK"/>
                 <constraint firstAttribute="bottom" secondItem="wpz-l2-Zrr" secondAttribute="bottom" id="FFE-i3-Ye6"/>
-                <constraint firstItem="wpz-l2-Zrr" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.25" id="StP-wG-2wY"/>
+                <constraint firstItem="wpz-l2-Zrr" firstAttribute="height" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.25" id="StP-wG-2wY"/>
                 <constraint firstAttribute="trailing" secondItem="wpz-l2-Zrr" secondAttribute="trailing" id="caD-Kb-lnL"/>
+                <constraint firstAttribute="bottom" secondItem="TH6-eu-8g1" secondAttribute="bottom" id="eg7-Gh-5hg"/>
+                <constraint firstAttribute="top" secondItem="TH6-eu-8g1" secondAttribute="top" id="gDZ-nB-X11"/>
+                <constraint firstItem="TH6-eu-8g1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hIl-iZ-DUB"/>
             </constraints>
+            <connections>
+                <outlet property="imageView" destination="TH6-eu-8g1" id="DPN-Wx-zh0"/>
+                <outlet property="labelDescription" destination="ppf-QI-lrR" id="hhW-vQ-eps"/>
+                <outlet property="labelName" destination="Dp9-lP-Lij" id="9LB-qn-df9"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="69.642857142857139"/>
         </collectionViewCell>
     </objects>
