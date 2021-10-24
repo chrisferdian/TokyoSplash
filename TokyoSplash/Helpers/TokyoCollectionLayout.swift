@@ -1,0 +1,55 @@
+//
+//  TokyoCollectionLayout.swift
+//  TokyoSplash
+//
+//  Created by Chris Ferdian on 24/10/21.
+//
+
+import UIKit
+
+enum CollectionStyle {
+    case list
+    case grid
+}
+
+class TokyoCollectionLayout : UICollectionViewFlowLayout {
+    
+    var display : CollectionStyle = .list {
+        didSet {
+            if display != oldValue {
+                self.invalidateLayout()
+            }
+        }
+    }
+    
+    convenience init(display: CollectionStyle) {
+        self.init()
+        
+        self.display = display
+        self.minimumLineSpacing = 1
+        self.minimumInteritemSpacing = 1
+        self.configLayout()
+    }
+    
+    func configLayout() {
+        switch display {
+        case .grid:
+            self.scrollDirection = .vertical
+            if let collectionView = self.collectionView {
+                let optimisedWidth = (collectionView.frame.width - minimumInteritemSpacing) / 2
+                let height = collectionView.frame.height / 2.5
+                self.itemSize = CGSize(width: optimisedWidth , height: height) // keep as square
+            }
+        case .list:
+            self.scrollDirection = .vertical
+            if let collectionView = self.collectionView {
+                self.itemSize = CGSize(width: collectionView.frame.width , height: 130)
+            }
+        }
+    }
+    
+    override func invalidateLayout() {
+        super.invalidateLayout()
+        self.configLayout()
+    }
+}
