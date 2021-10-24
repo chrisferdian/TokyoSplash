@@ -17,6 +17,7 @@ class AppCoordinator: Coordinator {
         self.window = window
         self.mainViewController = MainViewController()
         self.navigationController = UINavigationController(rootViewController: self.mainViewController)
+        self.navigationController.navigationBar.tintColor = .white
     }
 
     func start() {

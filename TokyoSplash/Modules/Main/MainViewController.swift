@@ -20,12 +20,19 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "写真"
+        
+        let searchBarItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearch))
+        self.navigationItem.setRightBarButton(searchBarItem, animated: true)
+        
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
         collectionView.dataSource = self
         collectionView.collectionViewLayout = collectionViewFlowLayout
         collectionViewFlowLayout.display = .list
+        self.navigationController?.setNavigationBarAppearance(color: .systemRed)
     }
-    
+    @objc func didTapSearch() {
+        
+    }
     @IBAction func didTapSegmented(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             collectionViewFlowLayout.display = .list
