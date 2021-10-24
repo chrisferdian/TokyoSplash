@@ -12,8 +12,8 @@ typealias Photos = [Photo]
 // MARK: - Photo
 struct Photo: Codable {
     let id: String?
-    let createdAt, updatedAt: Date?
-    let promotedAt: Date?
+    let createdAt, updatedAt: String?
+    let promotedAt: String?
     let width, height: Int?
     let color, blurHash: String?
     let photoDescription, altDescription: String?
