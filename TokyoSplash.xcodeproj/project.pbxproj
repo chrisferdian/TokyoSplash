@@ -44,6 +44,7 @@
 		84E568402724F81300E6F7FD /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5683F2724F81300E6F7FD /* Urls.swift */; };
 		84E568422725AB5400E6F7FD /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E568412725AB5400E6F7FD /* MainViewModel.swift */; };
 		84E568442725AC2500E6F7FD /* ViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E568432725AC2500E6F7FD /* ViewModelTest.swift */; };
+		84E568482725C3C000E6F7FD /* NSObjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E568472725C3C000E6F7FD /* NSObjectTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		84E5683F2724F81300E6F7FD /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		84E568412725AB5400E6F7FD /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		84E568432725AC2500E6F7FD /* ViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTest.swift; sourceTree = "<group>"; };
+		84E568472725C3C000E6F7FD /* NSObjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				84E567E22723EAED00E6F7FD /* TokyoSplashTests.swift */,
 				84E56814272458ED00E6F7FD /* CoordinatorTests.swift */,
 				84E568432725AC2500E6F7FD /* ViewModelTest.swift */,
+				84E568472725C3C000E6F7FD /* NSObjectTest.swift */,
 			);
 			path = TokyoSplashTests;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E568442725AC2500E6F7FD /* ViewModelTest.swift in Sources */,
+				84E568482725C3C000E6F7FD /* NSObjectTest.swift in Sources */,
 				84E56815272458ED00E6F7FD /* CoordinatorTests.swift in Sources */,
 				84E567E32723EAED00E6F7FD /* TokyoSplashTests.swift in Sources */,
 			);

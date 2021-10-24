@@ -9,7 +9,7 @@ import Foundation
 // MARK: - BusinessWork
 struct BusinessWork: Codable {
     let status: String?
-    let approvedOn: Date?
+    let approvedOn: String?
 
     enum CodingKeys: String, CodingKey {
         case status
