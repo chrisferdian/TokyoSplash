@@ -10,7 +10,7 @@ import Foundation
 class MainViewModel: NSObject {
     
     private let networkService: NetworkServices = NetworkServices.shared
-    private var photos: Photos = [] {
+    internal var photos: Photos = [] {
         didSet {
             self.bindPhotos?()
         }
