@@ -8,16 +8,18 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
+    //MARK: Properties
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedViewType: UISegmentedControl!
-    
+    //MARK: Custom CollectionView layout for list and grid state
     lazy var collectionViewFlowLayout : TokyoCollectionLayout = {
         let layout = TokyoCollectionLayout(display: .grid)
         return layout
     }()
     private var viewModel: MainViewModel?
-    
+    //MARK: Clouser for navigate to Detail view
+    internal var didNavigateToDetail : ((Photo) -> ())?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -85,6 +87,12 @@ extension MainViewController: UICollectionViewDelegate {
         let distance = scrollView.contentSize.height - (targetContentOffset.pointee.y + scrollView.bounds.height)
         if !(self.viewModel?.isLoading ?? false), distance < 20 {
             viewModel?.fetchPhotos()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let photo = self.viewModel?.photoAtIndexPath(index: indexPath.row) {
+            self.didNavigateToDetail?(photo)
         }
     }
 }

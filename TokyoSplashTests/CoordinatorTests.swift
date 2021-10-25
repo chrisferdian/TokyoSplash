@@ -45,7 +45,35 @@ class CoordinatorTests: XCTestCase {
         
         wait(for: [expectation], timeout: 5.0)
     }
-
+    
+    func test_detail_coordinator() throws {
+        let urlsMock = Urls(raw: "", full: "", regular: "", small: "", thumb: "")
+        let tempPhoto = Photo(
+            id: "123",
+            createdAt: nil,
+            updatedAt: nil,
+            promotedAt: nil,
+            width: 300,
+            height: 300,
+            color: nil,
+            blurHash: nil,
+            photoDescription: "MockPhotoObject",
+            altDescription: nil,
+            urls: urlsMock,
+            links: nil,
+            categories: nil,
+            likes: 1000,
+            likedByUser: true,
+            sponsorship: nil,
+            topicSubmissions: nil,
+            user: nil
+        )
+        let detailCoordinator = DetailCoordinator(navigationController: self.navigationController, photo: tempPhoto)
+        detailCoordinator.start()
+        XCTAssertNotNil(detailCoordinator.detailController?.photo)
+        XCTAssertEqual(detailCoordinator.detailController?.photo?.id, "123")
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
