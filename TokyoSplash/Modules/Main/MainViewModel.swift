@@ -17,16 +17,24 @@ class MainViewModel: NSObject {
     }
     
     var bindPhotos : (() -> ())?
+    private var apiPage: Int = 1
+    var isLoading: Bool = false
     
     func fetchPhotos() {
-        networkService.request(request: .listPhotos(page: 1), completion: { (result: Result<(Photo?, [Photo]?), Error>) in
+        if isLoading {
+            return
+        }
+        isLoading = true
+        networkService.request(request: .listPhotos(page: apiPage), completion: { (result: Result<(Photo?, [Photo]?), Error>) in
             switch result {
             case .success(let value):
                 if let photosTemp = value.1 {
-                    self.photos = photosTemp
-                    
+                    self.photos.append(contentsOf: photosTemp)
+                    self.apiPage += 1
+                    self.isLoading = false
                 }
             case .failure(let error):
+                self.isLoading = false
                 print(error)
             }
         })

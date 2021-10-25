@@ -42,6 +42,7 @@ class MainViewController: UIViewController {
         
         collectionView.registerCell(MainCollectionViewCell.self)
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.collectionViewLayout = collectionViewFlowLayout
         collectionViewFlowLayout.display = .list
         self.navigationController?.setNavigationBarAppearance(color: .systemRed)
@@ -74,5 +75,16 @@ extension MainViewController: UICollectionViewDataSource {
         }
         
         return cell
+    }
+}
+
+extension MainViewController: UICollectionViewDelegate {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+                                   withVelocity velocity: CGPoint,
+                                   targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let distance = scrollView.contentSize.height - (targetContentOffset.pointee.y + scrollView.bounds.height)
+        if !(self.viewModel?.isLoading ?? false), distance < 20 {
+            viewModel?.fetchPhotos()
+        }
     }
 }
