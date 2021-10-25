@@ -31,6 +31,11 @@ class DetailsViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    private func setupUI() {
+        self.imageView.enableZoom()
         if let urlString = photo?.urls?.regular, let url = URL(string: urlString) {
             self.imageView.kf.indicatorType = .activity
             self.imageView.kf.setImage(

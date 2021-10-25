@@ -50,6 +50,7 @@
 		84E5684F27264B5900E6F7FD /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5684E27264B5900E6F7FD /* DetailsCoordinator.swift */; };
 		84E5685127264D6500E6F7FD /* NavigationParsingDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5685027264D6500E6F7FD /* NavigationParsingDataTest.swift */; };
 		84E56853272668CC00E6F7FD /* TSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E56852272668CC00E6F7FD /* TSImage.swift */; };
+		84E5685527267BD800E6F7FD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5685427267BD800E6F7FD /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		84E5684E27264B5900E6F7FD /* DetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCoordinator.swift; sourceTree = "<group>"; };
 		84E5685027264D6500E6F7FD /* NavigationParsingDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationParsingDataTest.swift; sourceTree = "<group>"; };
 		84E56852272668CC00E6F7FD /* TSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSImage.swift; sourceTree = "<group>"; };
+		84E5685427267BD800E6F7FD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIImageView+Extension.swift"; path = "../../../../../../Downloads/UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 				84E568192724ED8A00E6F7FD /* UINavigationController+Extension.swift */,
 				84E568202724EF3900E6F7FD /* NSObject+Extension.swift */,
 				84E568222724EF4E00E6F7FD /* UICollectionView+Extension.swift */,
+				84E5685427267BD800E6F7FD /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				84E567CE2723EAEB00E6F7FD /* SceneDelegate.swift in Sources */,
 				84E568382724F7BF00E6F7FD /* Social.swift in Sources */,
 				84E568342724F78F00E6F7FD /* UserLinks.swift in Sources */,
+				84E5685527267BD800E6F7FD /* UIImageView+Extension.swift in Sources */,
 				84E5680C2724478200E6F7FD /* Coordinator.swift in Sources */,
 				84E568362724F79E00E6F7FD /* ProfileImage.swift in Sources */,
 				84E5681A2724ED8A00E6F7FD /* UINavigationController+Extension.swift in Sources */,
