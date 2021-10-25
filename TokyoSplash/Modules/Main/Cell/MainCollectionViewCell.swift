@@ -13,7 +13,6 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelDescription: UILabel!
-    fileprivate let placeholder = UIImage(named: "placeholder")
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,7 +36,7 @@ class MainCollectionViewCell: UICollectionViewCell {
                     case .success(_):
                         break
                     case .failure(_):
-                        self.imageView.image = self.placeholder
+                        self.imageView.image = TSImage.placeholder
                     }
                 }
         }

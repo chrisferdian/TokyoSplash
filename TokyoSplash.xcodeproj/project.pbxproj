@@ -49,6 +49,7 @@
 		84E5684D27264B4500E6F7FD /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E5684B27264B4500E6F7FD /* DetailsViewController.xib */; };
 		84E5684F27264B5900E6F7FD /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5684E27264B5900E6F7FD /* DetailsCoordinator.swift */; };
 		84E5685127264D6500E6F7FD /* NavigationParsingDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5685027264D6500E6F7FD /* NavigationParsingDataTest.swift */; };
+		84E56853272668CC00E6F7FD /* TSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E56852272668CC00E6F7FD /* TSImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		84E5684B27264B4500E6F7FD /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		84E5684E27264B5900E6F7FD /* DetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCoordinator.swift; sourceTree = "<group>"; };
 		84E5685027264D6500E6F7FD /* NavigationParsingDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationParsingDataTest.swift; sourceTree = "<group>"; };
+		84E56852272668CC00E6F7FD /* TSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 				84E568032723FC1F00E6F7FD /* Services */,
 				84E568082723FE8400E6F7FD /* Constant.swift */,
 				84E568162724DF7D00E6F7FD /* TokyoCollectionLayout.swift */,
+				84E56852272668CC00E6F7FD /* TSImage.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				84E5681A2724ED8A00E6F7FD /* UINavigationController+Extension.swift in Sources */,
 				84E568212724EF3900E6F7FD /* NSObject+Extension.swift in Sources */,
 				84E5683E2724F80400E6F7FD /* BusinessWork.swift in Sources */,
+				84E56853272668CC00E6F7FD /* TSImage.swift in Sources */,
 				84E5683A2724F7D200E6F7FD /* TopicSubmissions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

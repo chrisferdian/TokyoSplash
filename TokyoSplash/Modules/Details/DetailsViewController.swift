@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailsViewController: UIViewController {
-
+    //MARK: Properties
     var photo: Photo?
+    
+    @IBOutlet weak var imageView: UIImageView!
     
     // this is a convenient way to create this view controller without a imageURL
     convenience init() {
@@ -21,15 +24,30 @@ class DetailsViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
         
-    // if this view controller is loaded from a storyboard, imageURL will be nil
-        
+    // if this view controller is loaded from a storyboard, photo will be nil
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if let urlString = photo?.urls?.regular, let url = URL(string: urlString) {
+            self.imageView.kf.indicatorType = .activity
+            self.imageView.kf.setImage(
+                with: url,
+                placeholder: nil,
+                options: [
+                    .processor(DownsamplingImageProcessor(size: imageView.frame.size)),
+                    .scaleFactor(UIScreen.main.scale),
+                    .cacheOriginalImage
+                ]) { result in
+                    switch result {
+                    case .success(_):
+                        break
+                    case .failure(_):
+                        self.imageView.image = TSImage.placeholder
+                    }
+                }
+        }
     }
 }
