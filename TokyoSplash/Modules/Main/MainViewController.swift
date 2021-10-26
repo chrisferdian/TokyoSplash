@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     private var viewModel: MainViewModel?
     //MARK: Clouser for navigate to Detail view
     internal var didNavigateToDetail : ((Photo) -> ())?
+    internal var didNavigateToSearch : (() -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +51,7 @@ class MainViewController: UIViewController {
         self.navigationController?.setNavigationBarAppearance(color: .systemRed)
     }
     @objc func didTapSearch() {
-        
+        self.didNavigateToSearch?()
     }
     @IBAction func didTapSegmented(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {

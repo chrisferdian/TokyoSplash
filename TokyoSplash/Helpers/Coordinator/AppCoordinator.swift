@@ -8,7 +8,6 @@
 import UIKit
 
 class AppCoordinator: Coordinator {
-    var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     var window: UIWindow?
     private var mainViewController: MainViewController!
@@ -21,6 +20,9 @@ class AppCoordinator: Coordinator {
         mainViewController.didNavigateToDetail = { photo in
             self.navigateToDetail(photo: photo)
         }
+        mainViewController.didNavigateToSearch = {
+            self.navigateToSearch()
+        }
     }
 
     func start() {
@@ -31,6 +33,10 @@ class AppCoordinator: Coordinator {
     func navigateToDetail(photo: Photo) {
         let detailCoordinator = DetailCoordinator(navigationController: self.navigationController, photo: photo)
         detailCoordinator.start()
-        childCoordinators.append(detailCoordinator)
+    }
+    
+    func navigateToSearch() {
+        let searchCoordinator = SearchCoordinator(navigationController: self.navigationController)
+        searchCoordinator.start()
     }
 }
