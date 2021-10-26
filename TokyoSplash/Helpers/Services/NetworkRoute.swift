@@ -9,12 +9,14 @@ import Foundation
 
 enum NetworkRoute {
     case listPhotos(page: Int)
+    case search(keyword: String, page: Int)
 }
 
 extension NetworkRoute: NetworkEndPoint {
     var method: HTTPMethods {
         switch self {
-        case .listPhotos:
+        case .listPhotos
+            ,.search:
             return .get
         }
     }
@@ -23,6 +25,8 @@ extension NetworkRoute: NetworkEndPoint {
         switch self {
         case .listPhotos:
             return "photos"
+        case .search:
+            return "search/photos"
         }
     }
     
@@ -32,12 +36,18 @@ extension NetworkRoute: NetworkEndPoint {
             return [
                 "page": String(page)
             ]
+        case .search(let keyword, let page):
+            return [
+                "page": String(page),
+                "query": keyword
+            ]
         }
     }
     
     var header: Headers? {
         switch self {
-        case .listPhotos:
+        case .listPhotos
+            ,.search:
             return [
                 "Authorization": "Client-ID "+Constant.accessKey
             ]
@@ -47,6 +57,8 @@ extension NetworkRoute: NetworkEndPoint {
         switch self {
         case .listPhotos:
             return .array
+        case .search:
+            return .object
         }
     }
     func transform() -> URLComponents {

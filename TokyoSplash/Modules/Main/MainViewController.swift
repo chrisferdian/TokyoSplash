@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
     //MARK: Clouser for navigate to Detail view
     internal var didNavigateToDetail : ((Photo) -> ())?
     internal var didNavigateToSearch : (() -> ())?
+    lazy var searchBar:UISearchBar = UISearchBar()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +38,10 @@ class MainViewController: UIViewController {
         viewModel?.fetchPhotos()
     }
     private func setupUI() {
-        
-        title = "写真"
-        
-        let searchBarItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearch))
-        self.navigationItem.setRightBarButton(searchBarItem, animated: true)
+
+        searchBar.placeholder = "Find Any Images"
+        searchBar.delegate = self
+        self.navigationItem.titleView = searchBar
         
         collectionView.registerCell(MainCollectionViewCell.self)
         collectionView.dataSource = self
@@ -61,6 +61,15 @@ class MainViewController: UIViewController {
             collectionViewFlowLayout.display = .grid
             collectionViewFlowLayout.invalidateLayout()
         }
+    }
+    @objc func reload(_ searchBar: UISearchBar) {
+        guard let query = searchBar.text, query.trimmingCharacters(in: .whitespaces) != "" else {
+            print("nothing to search")
+            return
+        }
+        self.viewModel?.hasSearch = true
+        self.viewModel?.reloadPagination()
+        self.viewModel?.fetchPhotos(keyword: query)
     }
 }
 
@@ -85,9 +94,10 @@ extension MainViewController: UICollectionViewDelegate {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView,
                                    withVelocity velocity: CGPoint,
                                    targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        self.searchBar.endEditing(true)
         let distance = scrollView.contentSize.height - (targetContentOffset.pointee.y + scrollView.bounds.height)
         if !(self.viewModel?.isLoading ?? false), distance < 20 {
-            viewModel?.fetchPhotos()
+            viewModel?.fetchPhotos(keyword: self.searchBar.text)
         }
     }
     
@@ -95,5 +105,25 @@ extension MainViewController: UICollectionViewDelegate {
         if let photo = self.viewModel?.photoAtIndexPath(index: indexPath.row) {
             self.didNavigateToDetail?(photo)
         }
+    }
+}
+
+extension MainViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload(_:)), object: searchBar)
+        perform(#selector(self.reload(_:)), with: searchBar, afterDelay: 0.75)
     }
 }

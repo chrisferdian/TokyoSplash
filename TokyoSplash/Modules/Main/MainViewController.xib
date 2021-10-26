@@ -33,10 +33,13 @@
                 </collectionView>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DoC-XP-frV">
                     <rect key="frame" x="16" y="44" width="382" height="32"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <segments>
-                        <segment title="List"/>
-                        <segment title="Grid"/>
+                        <segment title="" image="ic_list"/>
+                        <segment title="" image="ic_grid"/>
                     </segments>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="selectedSegmentTintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <action selector="didTapSegmentedWithSender:" destination="-1" eventType="valueChanged" id="tV8-fR-Fof"/>
                     </connections>
@@ -57,6 +60,8 @@
         </view>
     </objects>
     <resources>
+        <image name="ic_grid" width="22" height="22"/>
+        <image name="ic_list" width="22" height="22"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
