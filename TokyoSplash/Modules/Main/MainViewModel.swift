@@ -66,11 +66,12 @@ class MainViewModel: NSObject {
             }
         })
     }
-    
+    //MARK: Return number of property photos for collection view datasource
     func numberOfPhotos() -> Int {
         return self.photos.count
     }
     
+    //MARK: Return single object of property photos for collection view datasource
     func photoAtIndexPath(index: Int) -> Photo {
         return photos[index]
     }

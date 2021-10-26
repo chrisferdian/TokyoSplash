@@ -20,12 +20,10 @@ class AppCoordinator: Coordinator {
         mainViewController.didNavigateToDetail = { photo in
             self.navigateToDetail(photo: photo)
         }
-        mainViewController.didNavigateToSearch = {
-            self.navigateToSearch()
-        }
     }
 
     func start() {
+        //MARK: Set root of window
         self.window?.rootViewController = self.navigationController
         self.window?.makeKeyAndVisible()
     }
@@ -33,10 +31,5 @@ class AppCoordinator: Coordinator {
     func navigateToDetail(photo: Photo) {
         let detailCoordinator = DetailCoordinator(navigationController: self.navigationController, photo: photo)
         detailCoordinator.start()
-    }
-    
-    func navigateToSearch() {
-        let searchCoordinator = SearchCoordinator(navigationController: self.navigationController)
-        searchCoordinator.start()
     }
 }

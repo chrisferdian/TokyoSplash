@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+//MARK: Struct for store all internal image
 struct TSImage {
     static let placeholder = UIImage(named: "placeholder")
 }

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//MARK: CollectionView Style
 enum CollectionStyle {
     case list
     case grid
@@ -47,7 +47,7 @@ class TokyoCollectionLayout : UICollectionViewFlowLayout {
             }
         }
     }
-    
+    //MARK: Reload collectionView UI
     override func invalidateLayout() {
         super.invalidateLayout()
         self.configLayout()

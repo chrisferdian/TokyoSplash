@@ -19,7 +19,6 @@ class MainViewController: UIViewController {
     private var viewModel: MainViewModel?
     //MARK: Clouser for navigate to Detail view
     internal var didNavigateToDetail : ((Photo) -> ())?
-    internal var didNavigateToSearch : (() -> ())?
     lazy var searchBar:UISearchBar = UISearchBar()
 
     override func viewDidLoad() {
@@ -30,6 +29,7 @@ class MainViewController: UIViewController {
     
     func bindViewModel() {
         viewModel = MainViewModel()
+        //MARK: Set trigger of property photos changed
         viewModel?.bindPhotos = {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -50,9 +50,7 @@ class MainViewController: UIViewController {
         collectionViewFlowLayout.display = .list
         self.navigationController?.setNavigationBarAppearance(color: .systemRed)
     }
-    @objc func didTapSearch() {
-        self.didNavigateToSearch?()
-    }
+    
     @IBAction func didTapSegmented(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             collectionViewFlowLayout.display = .list
@@ -67,7 +65,9 @@ class MainViewController: UIViewController {
             print("nothing to search")
             return
         }
+        //MARK: Change flag has search to true, to make viewModel know which function to process
         self.viewModel?.hasSearch = true
+        //MARK: Restore number of page in viewModel to 1
         self.viewModel?.reloadPagination()
         self.viewModel?.fetchPhotos(keyword: query)
     }
@@ -91,6 +91,7 @@ extension MainViewController: UICollectionViewDataSource {
 }
 
 extension MainViewController: UICollectionViewDelegate {
+    //MARK: Check distance scrolling and Procced load more if viewModel not running process anymore
     func scrollViewWillEndDragging(_ scrollView: UIScrollView,
                                    withVelocity velocity: CGPoint,
                                    targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -109,19 +110,23 @@ extension MainViewController: UICollectionViewDelegate {
 }
 
 extension MainViewController: UISearchBarDelegate {
+    //MARK: Show cancel button on search bar when user start typing keyword
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
     }
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
     }
+    //MARK: Dismiss Keyboard, and hide cancel button on search bar when user tap cancel
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.endEditing(true)
         searchBar.setShowsCancelButton(false, animated: true)
     }
+    //MARK: Dismiss Keyboard when user tap search
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.endEditing(true)
     }
+    //MARK: Perform reload and cancel previous process
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload(_:)), object: searchBar)
         perform(#selector(self.reload(_:)), with: searchBar, afterDelay: 0.75)

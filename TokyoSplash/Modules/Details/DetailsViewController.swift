@@ -50,6 +50,7 @@ class DetailsViewController: UIViewController {
                     case .success(_):
                         break
                     case .failure(_):
+                        //MARK: set placeholder image if failed to load image from url
                         self.imageView.image = TSImage.placeholder
                     }
                 }
